@@ -1,0 +1,67 @@
+import type { Metadata } from "next";
+import { Manrope, Merienda } from "next/font/google";
+import "./globals.css";
+import "./container.css";
+import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
+import Header from "@/components/Header/Header";
+import { Toaster } from "react-hot-toast";
+import Footer from "@/components/Footer/Footer";
+import { GlobalLoader } from "@/components/GlobalLoader/GlobalLoader";
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  display: "swap",
+});
+const merienda = Merienda({
+  variable: "--font-merienda",
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  display: "swap",
+});
+export const metadata: Metadata = {
+  title: "Harmoniq",
+  description:
+    "Harmoniq is a multi-page web application for discovering, creating, and sharing articles within a community",
+  openGraph: {
+    title: "Harmoniq",
+    url: "http://localhost:3000/",
+    description:
+      "Harmoniq is a multi-page web application for discovering, creating, and sharing articles within a community",
+    images: [
+      {
+        url: "",
+        width: 1200,
+        height: 630,
+        alt: "Harmoniq logo",
+      },
+    ],
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${manrope.variable} ${merienda.variable}`}
+    >
+      <body>
+        <TanStackProvider>
+          <div className="appShell">
+            <Header />
+            <Toaster position="top-right" reverseOrder={false} />
+            <main>{children}</main>
+            <Footer />
+          </div>
+          <GlobalLoader />
+        </TanStackProvider>
+      </body>
+    </html>
+  );
+}

@@ -1,0 +1,27 @@
+:global(.appShell > main):has(.loginSection) {
+  display: flex;
+}
+
+.loginSection {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 0;
+  padding: 85px 0;
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px) {
+  .loginSection {
+    padding: 232px 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .loginSection {
+    padding-top: 172px;
+    padding-bottom: 152px;
+  }
+}

@@ -1,0 +1,29 @@
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  /* display: grid; */
+  cursor: wait;
+  background-color: color-mix(in srgb, var(--black) 12%, transparent);
+  /* place-items: center; */
+}
+
+.inline {
+  display: grid;
+  min-height: 200px;
+  padding: 32px 0;
+  place-items: center;
+}
+
+.spinner {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  flex: none;
+  border-radius: 50%;
+  background-color: var(--light-green);
+  place-items: center;
+}

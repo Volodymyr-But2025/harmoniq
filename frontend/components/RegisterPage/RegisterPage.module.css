@@ -1,0 +1,26 @@
+:global(.appShell > main):has(.register_section) {
+  display: flex;
+}
+
+.register_section {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 0;
+  padding: 85px 0px;
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px) {
+  .register_section {
+    padding: 120px 0px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .register_section {
+    padding: 50px 0px;
+  }
+}

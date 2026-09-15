@@ -1,0 +1,14 @@
+{
+  "name": "harmoniq",
+  "private": true,
+  "description": "Harmoniq — Next.js client and Express API (portfolio fork of DevForge)",
+  "scripts": {
+    "install:all": "npm install --prefix frontend && npm install --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "lint": "npm run lint --prefix frontend && npm run lint --prefix backend"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

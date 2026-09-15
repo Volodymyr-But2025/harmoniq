@@ -1,0 +1,27 @@
+# Dependencies and builds
+node_modules/
+.next/
+out/
+dist/
+.vercel
+
+# Env (keep examples)
+.env
+.env.*
+!.env.example
+
+# Logs and OS
+*.log
+.DS_Store
+Thumbs.db
+
+# Backend uploads leftover
+uploads/
+
+# Next.js auto-generated agent files
+AGENTS.md
+CLAUDE.md
+
+# Local leftover clones (safe to delete after Cursor unlocks them)
+/FS-progect-devforge-frontend/
+/FS-progect-devforge-backend/

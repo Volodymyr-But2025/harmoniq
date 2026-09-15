@@ -1,0 +1,190 @@
+'use client';
+
+import { useState, useRef, ChangeEvent } from 'react';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import toast from 'react-hot-toast';
+import { useCurrentUser, CURRENT_USER_QUERY_KEY } from '@/lib/hooks/useCurrentUser';
+import { useLoaderStore } from '@/lib/store/globalLoaderStore';
+import styles from './UploadForm.module.css';
+
+interface FormValues {
+  file: File | null;
+}
+
+type UploadFormProps = {
+  redirectTo?: '/articles' | '/profile';
+};
+
+const validationSchema = Yup.object({
+  file: Yup.mixed<File>()
+    .required('Photo is required')
+    .test('fileType', 'Unsupported file format', (value) => {
+      if (!value) return false;
+      return ['image/jpeg', 'image/png', 'image/webp'].includes(value.type);
+    }),
+});
+
+async function uploadAvatarApi(file: File): Promise<unknown> {
+  const formData = new FormData();
+  formData.append('avatar', file);
+
+  const response = await fetch('/api/users/me/avatar', {
+    method: 'PATCH',
+    body: formData,
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.message || 'Failed to upload image');
+  }
+
+  if (response.status === 204) {
+    return null;
+  }
+
+  const contentType = response.headers.get('content-type') ?? '';
+
+  return contentType.includes('application/json') ? response.json() : null;
+}
+
+export default function UploadForm({
+  redirectTo = '/articles',
+}: UploadFormProps) {
+  const router = useRouter();
+  const queryClient = useQueryClient();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  
+  const { data: user } = useCurrentUser();
+  
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const showLoader = useLoaderStore((state) => state.showLoader);
+  const hideLoader = useLoaderStore((state) => state.hideLoader);
+
+  const displayImage = previewUrl || user?.avatar || user?.avatarUrl || null;
+
+  const mutation = useMutation({
+    mutationFn: uploadAvatarApi,
+    onMutate: () => {
+      showLoader();
+    },
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: CURRENT_USER_QUERY_KEY });
+      toast.success('Photo uploaded successfully!');
+      router.push(redirectTo);
+    },
+    onError: (error: Error) => {
+      toast.error(error.message || 'Something went wrong');
+    },
+    onSettled: () => {
+      hideLoader();
+    },
+  });
+
+  const handleCircleClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleClose = () => {
+    router.back();
+  };
+
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.card}>
+        <button
+          type="button"
+          className={styles.closeButton}
+          onClick={handleClose}
+          aria-label="Close"
+        >
+          <svg className={styles.closeIcon}>
+            <use href="/sprite.svg#Controls=close, Type=stroke, Size=32px" />
+          </svg>
+        </button>
+
+        <h1 className={styles.title}>Upload your photo</h1>
+
+        <Formik<FormValues>
+          initialValues={{ file: null }}
+          validationSchema={validationSchema}
+          onSubmit={(values) => {
+            if (values.file) {
+              mutation.mutate(values.file);
+            }
+          }}
+        >
+          {({ setFieldValue, errors, touched, values }) => {
+            const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+              const selectedFile = e.target.files?.[0];
+              if (selectedFile) {
+                setFieldValue('file', selectedFile);
+                setPreviewUrl(URL.createObjectURL(selectedFile));
+              }
+            };
+
+            return (
+              <Form className={styles.form}>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp"
+                  aria-label="Upload your profile photo"
+                  className={styles.hiddenInput}
+                  onChange={handleFileChange}
+                />
+
+                <div
+                  className={`${styles.avatarContainer} ${
+                    displayImage ? styles.avatarContainerFilled : ''
+                  }`}
+                  onClick={handleCircleClick}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') handleCircleClick();
+                  }}
+                >
+                  {displayImage ? (
+                    <Image
+                      src={displayImage}
+                      alt="Avatar preview"
+                      width={136}
+                      height={136}
+                      className={styles.previewImage}
+                      unoptimized
+                    />
+                  ) : (
+                    <div className={styles.cameraCircle}>
+                      <svg className={styles.cameraIcon}>
+                        <use href="/sprite.svg#cameraIcon" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+
+                {errors.file && touched.file && (
+                  <p className={styles.errorMessage}>{errors.file}</p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={!values.file || mutation.isPending}
+                  className={`${styles.saveButton} ${
+                    values.file ? styles.saveButtonActive : ''
+                  }`}
+                >
+                  {mutation.isPending ? 'Saving...' : 'Save'}
+                </button>
+              </Form>
+            );
+          }}
+        </Formik>
+      </div>
+    </div>
+  );
+}

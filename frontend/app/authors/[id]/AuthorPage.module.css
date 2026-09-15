@@ -1,0 +1,26 @@
+.section {
+  padding-top: 46px;
+  padding-bottom: 46px;
+}
+
+.content {
+  padding: 0 16px;
+}
+
+.profileInfo {
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .content {
+    max-width: 1224px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}

@@ -1,0 +1,64 @@
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatarLink {
+  display: block;
+  width: 137px;
+  height: 137px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 137px;
+  height: 137px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: opacity 200ms ease;
+}
+
+.avatarLink:hover .avatar {
+  opacity: 0.85;
+}
+
+.avatarLink:focus-visible {
+  outline: 2px solid var(--green-darker);
+  outline-offset: 4px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  /* без цього флекс-айтем не стискається вужче за контент,
+     і довге ім'я одним словом розпирає сторінку */
+  min-width: 0;
+}
+
+.name,
+.count {
+  color: var(--black);
+  font-weight: 700;
+}
+
+.name {
+  font-size: 32px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.count {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar {
+    transition: none;
+  }
+}

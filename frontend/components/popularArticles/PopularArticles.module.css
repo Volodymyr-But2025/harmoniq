@@ -1,0 +1,145 @@
+.popularSection {
+  padding: 40px 0 0 0;
+  width: 100%;
+}
+
+.popularArticlesContainer {
+  width: 100%;
+  padding: 0 16px;
+}
+
+.popularContent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.popularTitle {
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.popularLink {
+  position: relative;
+  display: flex;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--green-darker);
+  height: 28px;
+  gap: 10px;
+}
+
+.popularLink::after {
+  position: absolute;
+    inset: -8px;
+    content: "";
+}
+
+.popularLink:hover,
+.popularLink:focus-visible {
+  color: var(--green);
+}
+
+.popularLink:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+}
+
+.popularLink:hover .linkIcon,
+.popularLink:focus-visible .linkIcon {
+  transform: translate(2px, -2px) rotate(45deg);
+}
+
+.linkIcon {
+  display: block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask: url("/icons/arrow-up-right.svg") center / contain no-repeat;
+    mask: url("/icons/arrow-up-right.svg") center / contain no-repeat;
+    transform: rotate(45deg);
+    transition: transform 200ms ease;
+}
+
+.popularList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;  
+}
+
+/* Tablet (768px) */
+@media (min-width: 768px) {
+  .popularSection {
+    padding: 60px 0 0 0;
+  }
+
+  .popularArticlesContainer {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  .popularContent {
+    display: flex;
+    flex-direction: row;
+    height: 55px;
+    margin-bottom: 16px;
+  }
+
+  .popularTitle {
+    margin-bottom: 0;
+  }
+
+  .popularLink {
+    display: flex;
+    margin-left: auto;
+    padding: 13.5px 0;
+  }
+
+  .popularList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+/* Desktop (1440px) */
+@media (min-width: 1440px) {
+  .popularSection {
+    padding: 80px 0 0 0;
+  }
+
+  .popularArticlesContainer {
+    max-width: 1440px;
+    padding: 0 107px;
+  }
+
+  .popularContent {
+    display: flex;
+    flex-direction: row;
+    height: 55px;
+    margin-bottom: 16px;
+  }
+
+  .popularTitle {
+    font-size: 40px;
+    margin-bottom: 0;
+  }  
+
+  .popularList {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    padding-bottom: 0;
+    width: 100%;
+  }
+
+  .popularList li:last-child {
+    display: none;
+  }
+}
