@@ -22,6 +22,5 @@ uploads/
 AGENTS.md
 CLAUDE.md
 
-# Local leftover clones (safe to delete after Cursor unlocks them)
-/FS-progect-devforge-frontend/
+# Local leftover clone (close files, then delete the folder)
 /FS-progect-devforge-backend/

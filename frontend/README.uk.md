@@ -9,6 +9,8 @@ Next.js-клієнт Harmoniq: статті, автори, закладки, п�
 
 Частина монорепозиторію [harmoniq](https://github.com/Volodymyr-But2025/harmoniq). Запуск і деплой: [кореневий README](../README.uk.md).
 
+Live demo: [harmoniq-azure.vercel.app](https://harmoniq-azure.vercel.app) · API: [harmoniq-rp1j.onrender.com](https://harmoniq-rp1j.onrender.com)
+
 ## Fork
 
 Копія для портфоліо: **[hlieb-kotiun/devforge-frontend](https://github.com/hlieb-kotiun/devforge-frontend)**. Product name: **Harmoniq**. Team: **DevForge**.

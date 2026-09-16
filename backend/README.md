@@ -10,6 +10,8 @@ REST API for Harmoniq: articles, authors, saved articles, avatars, and cookie-ba
 
 Part of the [harmoniq](https://github.com/Volodymyr-But2025/harmoniq) monorepo. Setup and deploy: [root README](../README.md).
 
+Live demo: [harmoniq-azure.vercel.app](https://harmoniq-azure.vercel.app) · API: [harmoniq-rp1j.onrender.com](https://harmoniq-rp1j.onrender.com)
+
 ## Fork
 
 Portfolio copy of **[hlieb-kotiun/devforge-backend](https://github.com/hlieb-kotiun/devforge-backend)**. Product name: **Harmoniq**. Team: **DevForge**.

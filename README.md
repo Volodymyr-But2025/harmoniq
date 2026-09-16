@@ -2,6 +2,8 @@
 
 # Harmoniq
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-2ea44f)](https://harmoniq-azure.vercel.app)
+[![API](https://img.shields.io/badge/API-Render-46E3B7)](https://harmoniq-rp1j.onrender.com)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs)](https://nextjs.org/)
 [![Express](https://img.shields.io/badge/Express-5-339933?logo=nodedotjs&logoColor=white)](https://expressjs.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb)](https://mongoosejs.com/)
@@ -12,10 +14,11 @@ This is a **portfolio copy** of a team project. Product name: **Harmoniq**. Team
 
 | | URL |
 | --- | --- |
+| Live demo | [harmoniq-azure.vercel.app](https://harmoniq-azure.vercel.app) |
+| Production API | [harmoniq-rp1j.onrender.com](https://harmoniq-rp1j.onrender.com) |
+| This repo | [Volodymyr-But2025/harmoniq](https://github.com/Volodymyr-But2025/harmoniq) |
 | Original frontend | [hlieb-kotiun/devforge-frontend](https://github.com/hlieb-kotiun/devforge-frontend) |
 | Original backend | [hlieb-kotiun/devforge-backend](https://github.com/hlieb-kotiun/devforge-backend) |
-
-Live demo links will be added after deploy (Vercel + Render).
 
 ## Monorepo
 
