@@ -15,6 +15,10 @@ Live demo: [harmoniq-azure.vercel.app](https://harmoniq-azure.vercel.app) · API
 
 Portfolio copy of **[hlieb-kotiun/devforge-frontend](https://github.com/hlieb-kotiun/devforge-frontend)**. Product name: **Harmoniq**. Team: **DevForge**.
 
+## What it does
+
+Next.js client for Harmoniq: articles, authors, bookmarks, profile, and cookie sessions via a BFF to Express.
+
 ## Stack
 
 - Next.js 16 (App Router), React 19, TypeScript
@@ -24,7 +28,7 @@ Portfolio copy of **[hlieb-kotiun/devforge-frontend](https://github.com/hlieb-ko
 
 Node.js **22.18.0** (see `.nvmrc`).
 
-## Getting started
+## Run
 
 From the monorepo root:
 
@@ -67,7 +71,7 @@ Do not commit `.env`.
 | `/profile` | My articles | Private |
 | `/profile/saved` | Saved articles | Private |
 
-## Project structure
+## Structure
 
 ```
 app/

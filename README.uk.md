@@ -1,6 +1,6 @@
 [English](README.md) | **Українська**
 
-# Harmoniq
+# Harmoniq — платформа статей
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-2ea44f)](https://harmoniq-azure.vercel.app)
 [![API](https://img.shields.io/badge/API-Render-46E3B7)](https://harmoniq-rp1j.onrender.com)
@@ -12,6 +12,10 @@ Full-stack платформа: статті, автори, закладки, а�
 
 Це **копія для портфоліо** командного проєкту. Product name: **Harmoniq**. Team: **DevForge**.
 
+**Live:** [https://harmoniq-azure.vercel.app](https://harmoniq-azure.vercel.app)  
+**API:** [https://harmoniq-rp1j.onrender.com](https://harmoniq-rp1j.onrender.com)  
+**GitHub:** [Volodymyr-But2025/harmoniq](https://github.com/Volodymyr-But2025/harmoniq)
+
 | | URL |
 | --- | --- |
 | Live demo | [harmoniq-azure.vercel.app](https://harmoniq-azure.vercel.app) |
@@ -20,22 +24,23 @@ Full-stack платформа: статті, автори, закладки, а�
 | Original frontend | [hlieb-kotiun/devforge-frontend](https://github.com/hlieb-kotiun/devforge-frontend) |
 | Original backend | [hlieb-kotiun/devforge-backend](https://github.com/hlieb-kotiun/devforge-backend) |
 
-## Монорепозиторій
+## Що вміє
 
-```
-frontend/    Next.js 16 (App Router) + BFF-проксі до Express
-backend/     Express 5 REST API, MongoDB, Cloudinary
-```
+- Список і деталі статей, створення / редагування для авторів.
+- Автори, профілі, закладки (збережені статті).
+- Автентифікація через httpOnly cookies; завантаження аватара (Cloudinary).
+- Next.js BFF проксує `/api/*` на Express і передає cookies.
+- Власний live: Vercel (UI) + Render (API).
 
-Vercel Root Directory: `frontend`. Render Root Directory: `backend`.
+## Стек
 
-## Stack
+| Шар | Технології |
+| --- | --- |
+| Frontend | Next.js 16, React 19, TypeScript, CSS Modules, TanStack Query, Zustand, Axios, Formik, Yup |
+| Backend | Node.js, Express 5, MongoDB / Mongoose, Celebrate / Joi, Cloudinary, httpOnly cookies |
+| Runtime | Node.js 22.18.0 (див. `frontend/.nvmrc`) |
 
-- **Frontend:** Next.js 16, React 19, TypeScript, CSS Modules, TanStack Query, Zustand, Axios, Formik, Yup
-- **Backend:** Node.js, Express 5, MongoDB / Mongoose, Celebrate / Joi, Cloudinary, httpOnly cookies
-- **Node.js** 22.18.0 (див. `frontend/.nvmrc`)
-
-## Getting started
+## Запуск
 
 ```bash
 git clone https://github.com/Volodymyr-But2025/harmoniq.git
@@ -68,6 +73,15 @@ npm run seed --prefix backend
 ```
 
 Не комітьте `.env`.
+
+## Структура
+
+```
+frontend/    Next.js 16 (App Router) + BFF-проксі до Express
+backend/     Express 5 REST API, MongoDB, Cloudinary
+```
+
+Vercel Root Directory: `frontend`. Render Root Directory: `backend`.
 
 ### Змінні середовища
 
@@ -125,3 +139,4 @@ npm run seed --prefix backend
 
 - [Frontend](frontend/README.uk.md)
 - [Backend](backend/README.uk.md)
+- [Swagger UI](https://harmoniq-rp1j.onrender.com/api-docs) (API)

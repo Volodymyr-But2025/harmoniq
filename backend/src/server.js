@@ -8,6 +8,7 @@ import { connectMongoDB } from './db/connectMongoDB.js';
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import articlesRoutes from './routes/articlesRoutes.js';
+import { setupSwagger } from './docs/swagger.js';
 import { errors } from 'celebrate';
 import cookieParser from 'cookie-parser';
 const app = express();
@@ -41,6 +42,8 @@ app.use(logger);
 app.use(authRoutes);
 app.use(userRoutes);
 app.use(articlesRoutes);
+
+setupSwagger(app);
 
 app.use(notFoundHandler);
 

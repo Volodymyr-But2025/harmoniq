@@ -16,7 +16,7 @@ Live demo: [harmoniq-azure.vercel.app](https://harmoniq-azure.vercel.app) · API
 
 Копія для портфоліо: **[hlieb-kotiun/devforge-backend](https://github.com/hlieb-kotiun/devforge-backend)**. Product name: **Harmoniq**. Team: **DevForge**.
 
-## Stack
+## Стек
 
 - Node.js, Express 5
 - MongoDB / Mongoose
@@ -24,7 +24,7 @@ Live demo: [harmoniq-azure.vercel.app](https://harmoniq-azure.vercel.app) · API
 - Cloudinary (завантаження зображень)
 - bcrypt, httpOnly cookies (`accessToken`, `refreshToken`, `sessionId`)
 
-## Getting started
+## Запуск
 
 З кореня монорепозиторію:
 
@@ -95,10 +95,19 @@ npm run seed --prefix backend
 
 `POST` / `PATCH` `/articles` приймають `multipart/form-data` з полем `img`. Аватар — поле `avatar`.
 
-## Project structure
+## API docs (Swagger)
+
+Інтерактивна OpenAPI-документація (cookie-сесії працюють після `POST /auth/login` у тому ж браузері):
+
+- Локально: [http://localhost:5000/api-docs](http://localhost:5000/api-docs)
+- Production: [https://harmoniq-rp1j.onrender.com/api-docs](https://harmoniq-rp1j.onrender.com/api-docs)
+- JSON-спека: `/api-docs.json`
+
+## Структура
 
 ```
 src/
+  docs/          OpenAPI-спека + налаштування Swagger UI
   routes/        HTTP routes
   controllers/   Request handlers
   models/        Mongoose schemas

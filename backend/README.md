@@ -24,7 +24,7 @@ Portfolio copy of **[hlieb-kotiun/devforge-backend](https://github.com/hlieb-kot
 - Cloudinary (image uploads)
 - bcrypt, httpOnly cookies (`accessToken`, `refreshToken`, `sessionId`)
 
-## Getting started
+## Run
 
 From the monorepo root:
 
@@ -95,10 +95,19 @@ npm run seed --prefix backend
 
 `POST` / `PATCH` `/articles` accept `multipart/form-data` with image field `img`. Avatar upload uses field `avatar`.
 
-## Project structure
+## API docs (Swagger)
+
+Interactive OpenAPI UI (cookie sessions work after `POST /auth/login` in the same browser):
+
+- Local: [http://localhost:5000/api-docs](http://localhost:5000/api-docs)
+- Production: [https://harmoniq-rp1j.onrender.com/api-docs](https://harmoniq-rp1j.onrender.com/api-docs)
+- Raw JSON: `/api-docs.json`
+
+## Structure
 
 ```
 src/
+  docs/          OpenAPI spec + Swagger UI setup
   routes/        HTTP routes
   controllers/   Request handlers
   models/        Mongoose schemas

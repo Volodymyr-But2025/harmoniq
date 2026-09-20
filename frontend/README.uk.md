@@ -15,7 +15,7 @@ Live demo: [harmoniq-azure.vercel.app](https://harmoniq-azure.vercel.app) · API
 
 Копія для портфоліо: **[hlieb-kotiun/devforge-frontend](https://github.com/hlieb-kotiun/devforge-frontend)**. Product name: **Harmoniq**. Team: **DevForge**.
 
-## Stack
+## Стек
 
 - Next.js 16 (App Router), React 19, TypeScript
 - CSS Modules, `next/image`
@@ -24,7 +24,7 @@ Live demo: [harmoniq-azure.vercel.app](https://harmoniq-azure.vercel.app) · API
 
 Node.js **22.18.0** (див. `.nvmrc`).
 
-## Getting started
+## Запуск
 
 З кореня монорепозиторію:
 
@@ -67,7 +67,7 @@ npm run dev --prefix frontend
 | `/profile` | Мої статті | Private |
 | `/profile/saved` | Збережені статті | Private |
 
-## Project structure
+## Структура
 
 ```
 app/
